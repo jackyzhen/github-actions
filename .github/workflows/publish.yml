@@ -13,13 +13,14 @@ jobs:
     steps:
     - name: test
       run: |
-        echo "hello world!"
+        echo "hello world! ${GITHUB_REF}"
 
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - name: checkout
       uses: actions/checkout@v2
       with:
-        ref: GITHUB_REF
+        ref: ${GITHUB_REF}
+
 
     - name: Use Node.js 10.16.x
       uses: actions/setup-node@v1
